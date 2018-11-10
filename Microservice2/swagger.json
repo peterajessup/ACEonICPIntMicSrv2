@@ -1,0 +1,46 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Microservice2",
+    "version" : "1.0.0",
+    "description" : "Microservice2"
+  },
+  "paths" : {
+    "/message" : {
+      "post" : {
+        "operationId" : "add",
+        "responses" : {
+          "200" : {
+            "description" : "The operation was successful."
+          }
+        },
+        "consumes" : [ "application/json" ],
+        "produces" : [ "application/json" ],
+        "description" : "Insert a message",
+        "parameters" : [ {
+          "name" : "body",
+          "in" : "body",
+          "schema" : {
+            "$ref" : "#/definitions/MessageArray"
+          },
+          "description" : "The request body for the operation",
+          "required" : true
+        } ]
+      }
+    }
+  },
+  "basePath" : "/microservice2/v1",
+  "definitions" : {
+    "MessageArray" : {
+      "type" : "object",
+      "properties" : {
+        "Messages" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
